@@ -16,8 +16,8 @@ table
         th View
     each borrow in borrows
         tr
-            td= borrow.userId
-            td= borrow.bookId
+            td= borrow.user
+            td= borrow.book
             td
               - var value = borrow.isComplete
                 if value == "true"
