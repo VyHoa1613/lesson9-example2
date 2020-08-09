@@ -9,4 +9,8 @@ router.get("/create",controller.getCreateTransaction)
 
 router.post("/create",controller.postCreateTransaction)
 
+router.get("/:id/complete",controller.getViewTransaction)
+
+router.post("/complete",controller.postViewTransaction)
+
 module.exports = router;

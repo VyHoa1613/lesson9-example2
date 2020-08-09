@@ -6,9 +6,11 @@ form(action="/transaction/create",method="POST")
                 option#op1(value=user.id)=user.name
 
         br
-        babel Books
+        label Books
         select(name="bookId")
             each book in books
                  option#op2(value=book.id)=book.title
+        label isComplete
+            input(type="checkbox",name="isComplete",value="false",checked="false",style="display:none")
         button Create
 

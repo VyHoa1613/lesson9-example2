@@ -12,7 +12,15 @@ table
     tr
         th Name
         th BookName
+        th isComplete
+        th View
     each borrow in borrows
         tr
-            td= borrow.nameId
+            td= borrow.userId
             td= borrow.bookId
+            td
+              - var value = borrow.isComplete
+                if value == "true"
+                  input(type="checkbox",checked="")
+            td
+              a(href="/transaction/"+ borrow.id +"/complete") View
