@@ -7,10 +7,11 @@ module.exports.indexTransaction = (req, res) =>{
         return{
             user: db.get("users").find({id:item.userId}).value().name,
             book: db.get("books").find({id:item.bookId}).value().title,
-            idTran: db.get("transaction").find({id:item.id}).value().id,
+            id: db.get("transaction").find({id:item.id}).value().id,
             isComplete: db.get("transaction").find({id:item.id}).value().isComplete
         }
     })
+    console.log(takeUser);
     res.render("transaction/borrow",{
         borrows:takeUser
     })
@@ -33,6 +34,7 @@ module.exports.postCreateTransaction = (req, res)=> {
 
 module.exports.getViewTransaction = (req, res)  =>{
     var id = req.params.id;
+    console.log(id);
     var tran = db.get("transaction").find({id: id}).value();
     res.render("transaction/view",{
         tran:tran
