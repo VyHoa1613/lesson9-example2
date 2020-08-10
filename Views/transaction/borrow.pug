@@ -1,26 +1,29 @@
-h1 Borrow 
-style.
-  th,td{
-  border: 1px solid black;
-  text-align:center;
-  }
-  table{
-    width: 500px;
-  }
-a(href="/transaction/create") borrow
-table
-    tr
-        th Name
-        th BookName
-        th isComplete
-        th View
-    each borrow in borrows
-        tr
-            td= borrow.user
-            td= borrow.book
-            td
-              - var value = borrow.isComplete
-                if value == "true"
-                  input(type="checkbox",checked="")
-            td
-              a(href="/transaction/"+ borrow.id +"/complete") View
+extends ../layout/common
+
+block content
+  h1 Borrow 
+  style.
+    th,td{
+    border: 1px solid black;
+    text-align:center;
+    }
+    table{
+      width: 500px;
+    }
+  a(href="/transaction/create") borrow
+  table
+      tr
+          th Name
+          th BookName
+          th isComplete
+          th View
+      each borrow in borrows
+          tr
+              td= borrow.user
+              td= borrow.book
+              td
+                - var value = borrow.isComplete
+                  if value == "true"
+                    input(type="checkbox",checked="")
+              td
+                a(href="/transaction/"+ borrow.id +"/complete") View
